@@ -64,8 +64,36 @@ class ControllerBase
     @flash ||= Flash.new(@req)
   end
 
+  #CSRF methods
+
+  def form_authenticity_token
+    if @token && @token != ""
+      @token
+    else
+      @token = SecureRandom::urlsafe_base64
+      attributes = {}
+      attributes[:path] = '/'
+      attributes[:value] = @token
+      @res.set_cookie('authenticity_token', attributes)
+      @token
+    end
+  end
+
+  def check_authenticity_token(token)
+    unless token == @params["authenticity_token"] && !token.nil?
+      raise "Invalid authenticity token"
+    end
+  end
+
+  def self.protect_from_forgery
+    @@protected = true
+  end
+
   # use this with the router to call action_name (:index, :show, :create...)
   def invoke_action(name)
+    if @req.post? && @@protected
+      check_authenticity_token(req.cookies['authenticity_token'])
+    end
     self.send(name)
     render(name) unless already_built_response?
   end
