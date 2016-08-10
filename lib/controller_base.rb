@@ -6,6 +6,10 @@ require_relative './flash'
 require 'byebug'
 
 class ControllerBase
+
+  #CSRF PROTECTION
+  protect_from_forgery
+
   attr_reader :req, :res, :params
 
   # Setup the controller

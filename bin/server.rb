@@ -1,18 +1,12 @@
 require 'rack'
-require_relative '../lib/controller_base'
+# require_relative '../lib/controller_base'
 require_relative '../lib/router'
+require_relative 'routes'
 require_relative '../lib/static'
-
-class MyController < ControllerBase
-  def go
-    render_content("Hello from the controller", "text/html")
-  end
-end
+require_relative '../lib/show_exceptions'
 
 router = Router.new
-router.draw do
-  get Regexp.new("^/$"), MyController, :go
-end
+run_routes(router)
 
 app = Proc.new do |env|
   req = Rack::Request.new(env)
@@ -22,6 +16,7 @@ app = Proc.new do |env|
 end
 
 app = Rack::Builder.new do
+  use ShowExceptions
   use Static
   run app
 end.to_app

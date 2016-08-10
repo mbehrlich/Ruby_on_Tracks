@@ -1,0 +1,4 @@
+# For any controllers you write.
+# You must require the controller_base.rb file from the lib directory
+# You also must inherit from the ControllerBase class in that file.
+# Finally, you must require the controller you write in the bin/server.rb file.

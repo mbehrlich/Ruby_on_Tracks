@@ -1,0 +1,1 @@
+# To begin, type ruby bin/server.rb in the terminal
