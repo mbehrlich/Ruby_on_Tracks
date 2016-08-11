@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Cats</title>
+  </head>
+  <body>
+    <h1>Cats</h1>
+    <ul>
+      <% @cats.each do |cat| %>
+        <li>
+          <p>
+            <%= cat.name %>
+          </p>
+        </li>
+      <% end %>
+    </ul>
+  </body>
+</html>

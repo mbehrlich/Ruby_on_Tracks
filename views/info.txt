@@ -1,0 +1,2 @@
+# views must be in folders that are pluralized and have _controller
+# at the end. For example, "users_controller".

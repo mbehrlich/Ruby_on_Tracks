@@ -1,0 +1,5 @@
+# In every model you create, you must require 'bin/active_record_lite.rb'
+# and have your model inherit from the class SQLObject. You also must
+# require the model's file in lib/controller_base.rb.
+#
+# Every model you write must have the function 'finalize!' at the top 

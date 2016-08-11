@@ -1,1 +1,6 @@
 # To begin, type ruby bin/server.rb in the terminal
+#
+# Create controllers in the controllers folder. Make sure to
+# follow instructions in the info file. Same with models.
+#
+# Write your database code in database.sql
