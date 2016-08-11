@@ -12,12 +12,7 @@ def run_routes(router)
     # the fourth argument will be the action, the name of the method
     # in your controller.
 
-    get Regexp.new("^/$"), CatsController, :index
-    get Regexp.new("^/users$"), UsersController, :index
-    get Regexp.new("^/cats/new$"), CatsController, :new
-    get Regexp.new("^/users/new$"), UsersController, :new
-    post Regexp.new("^/cats$"), CatsController, :create
-    post Regexp.new("^/users$"), UsersController, :create
+    # Your routes here
 
   end
 end

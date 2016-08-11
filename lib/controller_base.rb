@@ -6,8 +6,6 @@ require_relative './flash'
 require 'byebug'
 
 # Require your models here
-require_relative '../models/cat.rb'
-require_relative '../models/user.rb'
 
 
 class ControllerBase
